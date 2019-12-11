@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateCountryComponent } from './countries/create-country/create-country.component';
 import { UsersComponent } from './users/users.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [CountriesComponent, StatesComponent, CreateCountryComponent, UsersComponent],
@@ -18,7 +19,8 @@ import { UsersComponent } from './users/users.component';
     FormsModule,
     ReactiveFormsModule,
     ColivingRoutingModule,
-    NgbModule
+    NgbModule,
+    NgxSpinnerModule
   ]
 })
 export class ColivingModule { }

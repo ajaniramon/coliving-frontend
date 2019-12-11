@@ -4,6 +4,7 @@ import { Country } from '../../../models/country';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-countries',
@@ -19,15 +20,16 @@ export class CountriesComponent implements OnInit, OnDestroy {
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject();
   modalService: NgbModal;
-
+  spinner: NgxSpinnerService;
   countryId: string;
   countryName: string;
   dataTableInitialized: boolean = false;
 
-  constructor(countriesService: CountriesService, router: Router, modalService: NgbModal) {
+  constructor(countriesService: CountriesService, router: Router, modalService: NgbModal, spinner: NgxSpinnerService) {
     this.countriesService = countriesService;
     this.router = router;
     this.modalService = modalService;
+    this.spinner = spinner;
   }
 
   ngOnInit() {
@@ -41,6 +43,7 @@ export class CountriesComponent implements OnInit, OnDestroy {
   }
 
   getCountries() {
+    this.spinner.show();
     this.countriesService.getCountries().subscribe((resp: Country[]) => {
       this.countries = resp;
 
@@ -48,6 +51,8 @@ export class CountriesComponent implements OnInit, OnDestroy {
         this.dtTrigger.next();
         this.dataTableInitialized = true;
       }
+
+      this.spinner.hide();
     });
   }
 
@@ -69,8 +74,10 @@ export class CountriesComponent implements OnInit, OnDestroy {
   }
 
   deleteCountry() {
+    this.spinner.show();
     this.countriesService.deleteCountry(this.countryId).subscribe((resp: any) => {
       this.modalService.dismissAll();
+      this.spinner.hide();
       this.getCountries();
     });
   }

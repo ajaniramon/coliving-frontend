@@ -1,4 +1,5 @@
 export class LoginResult {
-  success: Boolean;
+  success: boolean;
   token: string;
+  admin: boolean;
 }

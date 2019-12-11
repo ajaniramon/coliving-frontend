@@ -19,6 +19,7 @@ export class DefaultLayoutComponent implements OnInit {
   constructor(router: Router, usersService: UsersService) {
     this.router = router;
     this.usersService = usersService;
+    this.currentUser = new User();
   }
 
   ngOnInit(): void {
