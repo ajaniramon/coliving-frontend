@@ -12,6 +12,10 @@ export class UsersService {
     this.httpClient = httpClient;
    }
 
+   getUsers() {
+     return this.httpClient.get(ApiConfig.baseUrl + '/users');
+   }
+
    getCurrentUser() {
       return this.httpClient.get(ApiConfig.baseUrl + '/users/current');
    }

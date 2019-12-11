@@ -4,6 +4,7 @@ import { CountriesComponent} from './countries/countries.component';
 import { CreateCountryComponent } from './countries/create-country/create-country.component';
 import {StatesComponent} from './states/states.component';
 import { UsersComponent } from './users/users.component';
+import { CreateUserComponent } from './users/create-user/create-user.component';
 
 const routes: Routes = [
   {
@@ -40,6 +41,13 @@ const routes: Routes = [
       {
         path: 'users',
         component: UsersComponent,
+        data: {
+          title: 'Users'
+        }
+      },
+      {
+        path: 'users/create',
+        component: CreateUserComponent,
         data: {
           title: 'Users'
         }

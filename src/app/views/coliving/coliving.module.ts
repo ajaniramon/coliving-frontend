@@ -10,9 +10,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CreateCountryComponent } from './countries/create-country/create-country.component';
 import { UsersComponent } from './users/users.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { CreateUserComponent } from './users/create-user/create-user.component';
 
 @NgModule({
-  declarations: [CountriesComponent, StatesComponent, CreateCountryComponent, UsersComponent],
+  declarations: [CountriesComponent, StatesComponent, CreateCountryComponent, UsersComponent, CreateUserComponent],
   imports: [
     CommonModule,
     DataTablesModule,
