@@ -8,9 +8,10 @@ import { DataTablesModule } from 'angular-datatables';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateCountryComponent } from './countries/create-country/create-country.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
-  declarations: [CountriesComponent, StatesComponent, CreateCountryComponent],
+  declarations: [CountriesComponent, StatesComponent, CreateCountryComponent, UsersComponent],
   imports: [
     CommonModule,
     DataTablesModule,

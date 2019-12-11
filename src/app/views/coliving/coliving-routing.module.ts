@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CountriesComponent} from './countries/countries.component';
 import { CreateCountryComponent } from './countries/create-country/create-country.component';
 import {StatesComponent} from './states/states.component';
+import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,13 @@ const routes: Routes = [
         component: StatesComponent,
         data: {
           title: 'States'
+        }
+      },
+      {
+        path: 'users',
+        component: UsersComponent,
+        data: {
+          title: 'Users'
         }
       }
     ]

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { navItems } from '../../_nav';
 import { Router } from '@angular/router';
+import { UsersService } from '../../services/users/users.service';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,9 +12,13 @@ export class DefaultLayoutComponent implements OnInit {
   public sidebarMinimized = false;
   public navItems = navItems;
   public router: Router;
+  usersService: UsersService;
 
-  constructor(router: Router) {
+  currentUser: User;
+
+  constructor(router: Router, usersService: UsersService) {
     this.router = router;
+    this.usersService = usersService;
   }
 
   ngOnInit(): void {
@@ -20,6 +26,10 @@ export class DefaultLayoutComponent implements OnInit {
 
     if (!authToken) {
       this.router.navigateByUrl('login');
+    } else {
+        this.usersService.getCurrentUser().subscribe((resp: User) => {
+          this.currentUser = resp;
+        });
     }
   }
 

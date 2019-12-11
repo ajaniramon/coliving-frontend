@@ -23,5 +23,10 @@ export const navItems: INavData[] = [
     name: 'States',
     url: '/coliving/states',
     icon: 'icon-pie-chart'
+  },
+  {
+    name: 'Users',
+    url: '/coliving/users',
+    icon: 'icon-people'
   }
 ];
